@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783387587123",
+    "project_id": "eccommerce-vendor",
+    "storage_bucket": "eccommerce-vendor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783387587123:android:2063dd159e5478d1032946",
+        "android_client_info": {
+          "package_name": "com.eccommercevendor.eccommerce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783387587123-8pbqs7or2u6m3l4nk5ggpil04ag5qu0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eccommercevendor.eccommerce_app",
+            "certificate_hash": "0c81749ff0f8c6373b30b01c1ea935f5226bc1b9"
+          }
+        },
+        {
+          "client_id": "783387587123-q4j925jf4jj2fbokd3eo9338b9mlhav7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOVs_r5jXWRCxHkwC62q5bPoWG-R8DnOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783387587123-q4j925jf4jj2fbokd3eo9338b9mlhav7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
