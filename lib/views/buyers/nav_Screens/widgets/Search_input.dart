@@ -20,7 +20,7 @@ class SearchInputScreen extends StatelessWidget {
                borderSide: BorderSide.none),
                prefixIcon: Padding(
                  padding: const EdgeInsets.all(14.0),
-                 child: SvgPicture.asset('/assets/icons/searcg.svg', width: 10,),
+                 child: SvgPicture.asset('assets/icons/searcg.svg', width: 14,),
                ),
             ),
           

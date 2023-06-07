@@ -1,41 +1,70 @@
 {
   "project_info": {
-    "project_number": "783387587123",
-    "project_id": "eccommerce-vendor",
-    "storage_bucket": "eccommerce-vendor.appspot.com"
+    "project_number": "668896192348",
+    "project_id": "eccommerce-app-e3caf",
+    "storage_bucket": "eccommerce-app-e3caf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:783387587123:android:2063dd159e5478d1032946",
+        "mobilesdk_app_id": "1:668896192348:android:1a9b3e188641464343c399",
         "android_client_info": {
           "package_name": "com.eccommercevendor.eccommerce_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "783387587123-8pbqs7or2u6m3l4nk5ggpil04ag5qu0r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.eccommercevendor.eccommerce_app",
-            "certificate_hash": "0c81749ff0f8c6373b30b01c1ea935f5226bc1b9"
-          }
-        },
-        {
-          "client_id": "783387587123-q4j925jf4jj2fbokd3eo9338b9mlhav7.apps.googleusercontent.com",
+          "client_id": "668896192348-s9h0j6kepseu8m2vn2qkuij2av7f795s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDOVs_r5jXWRCxHkwC62q5bPoWG-R8DnOM"
+          "current_key": "AIzaSyAO89Tbjysvgncum2JW1eDrQQypGjDdfY8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "783387587123-q4j925jf4jj2fbokd3eo9338b9mlhav7.apps.googleusercontent.com",
+              "client_id": "668896192348-s9h0j6kepseu8m2vn2qkuij2av7f795s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668896192348:android:304208f5e7f5da2543c399",
+        "android_client_info": {
+          "package_name": "com.eccommercevendorapp.eccommerce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668896192348-33r01gkin3k62o9qiafjqc5sutbnk4g8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eccommercevendorapp.eccommerce_app",
+            "certificate_hash": "0c81749ff0f8c6373b30b01c1ea935f5226bc1b9"
+          }
+        },
+        {
+          "client_id": "668896192348-s9h0j6kepseu8m2vn2qkuij2av7f795s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO89Tbjysvgncum2JW1eDrQQypGjDdfY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668896192348-s9h0j6kepseu8m2vn2qkuij2av7f795s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
