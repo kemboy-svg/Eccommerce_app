@@ -48,6 +48,9 @@ class _BannerWidgetState extends State<BannerWidget> {
                   fit: BoxFit.fitWidth,
                 ),
               );
-            })));
+            }
+            ),
+            ),
+            );
   }
 }
