@@ -13,7 +13,7 @@ class RegisterScreen extends StatelessWidget {
           children: [
             Text('Create a customer"s account'),
             CircleAvatar(
-              radius: 64,
+              radius: 54,
               backgroundColor: Colors.orange.shade900,
             ),
             Padding(
