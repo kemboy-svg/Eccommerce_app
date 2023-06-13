@@ -21,11 +21,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   late String password;
 
+  bool _isLoading = false;
+
   _signupUser() async {
+    setState(() {
+      _isLoading = true;
+    });
     if (_formKey.currentState!.validate()) {
-      await _authController.SignupUsers(email, fullname, phone, password);
+      await _authController.SignupUsers(email, fullname, phone, password)
+          .whenComplete(() {
+        setState(() {
+          _formKey.currentState!.reset();
+          _isLoading = false;
+        });
+      });
+
+      return showSnack(context, 'Account was created successfully');
     } else {
-      print('ooh bad guy');
+      setState(() {
+        _isLoading=false;
+      });
+      return displaySnack(context, 'All fields must be filled correctly');
     }
   }
 
@@ -100,12 +116,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Padding(
                 padding: const EdgeInsets.all(13.0),
                 child: TextFormField(
+                  obscureText: true,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Password field is empty';
+                      return 'Please enter your password';
                     } else {
-                      return showSnack(context,
-                          'Please all fields must be filled correctly');
+                      return null;
                     }
                   },
                   onChanged: (value) {
@@ -128,7 +144,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
-                      child: Text(
+                      child: _isLoading
+                      ?CircularProgressIndicator(color: Colors.white,) 
+                      :Text(
                     'Register',
                     style: TextStyle(
                       color: Colors.white,
