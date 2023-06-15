@@ -26,15 +26,16 @@ class _LoginScreenState extends State<LoginScreen> {
     });
     if (_formKey.currentState!.validate()) {
       String res = await _controller.LoginUsers(email, password);
-
+         Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MainScreen()));
       if (res == 'success') {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => MainScreen()));
       } else {
-        setState(() {
+        setState(() { 
           _isLoading = false;
         });
-        return displaySnack(context, 'User does not exist');
+        
       }
     } else {
       setState(() {

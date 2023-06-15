@@ -1,8 +1,11 @@
+import 'dart:typed_data';
+
 import 'package:eccommerce_app/controllers/auth_conroller.dart';
 import 'package:eccommerce_app/utils/show_SnackBar.dart';
 import 'package:eccommerce_app/views/buyers/auth/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -24,6 +27,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool _isLoading = false;
 
+  Uint8List? image;
+
+  String? fileName;
+
   _signupUser() async {
     setState(() {
       _isLoading = true;
@@ -40,11 +47,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return showSnack(context, 'Account was created successfully');
     } else {
       setState(() {
-        _isLoading=false;
+        _isLoading = false;
       });
       return displaySnack(context, 'All fields must be filled correctly');
     }
   }
+
+  PickImage() async {
+    Uint8List im = await _authController.pickImage(ImageSource.gallery);
+
+    setState(() {
+      image = im;
+    });
+  }
+
+  // PickImage() async {
+  //   FilePickerResult? result =
+  //       await FilePicker.platform.pickFiles(type: FileType.image);
+
+  //   if (result != null) {
+  //     setState(() {
+  //       image = result.files.first.bytes;
+  //       fileName = result.files.first.name;
+  //     });
+  //   } else {
+  //     // The user did not pick  the image
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -53,25 +82,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Form(
           key: _formKey,
           child: Column(
-            
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 40,
+              ),
               Text('Create a customer"s account'),
               Stack(
-                  children: [
-                     CircleAvatar(
-                    radius: 54,
-                    backgroundColor: Colors.orange.shade900,
-                  ),
+                children: [
+                  image != null
+                      ? CircleAvatar(
+                          radius: 54,
+                          backgroundColor: Colors.orange.shade900,
+                          backgroundImage: MemoryImage(image!))
+                      : CircleAvatar(
+                          radius: 54,
+                          backgroundColor: Colors.orange.shade900,
+                          backgroundImage: NetworkImage(
+                              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fdefault-profile-picture&psig=AOvVaw07K2V5_1qW6jIoMdcoZ46H&ust=1686903612946000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCND-nPnrxP8CFQAAAAAdAAAAABAE'),
+                        ),
                   Positioned(
                     bottom: -10,
-                    left: 80,
-                    child: IconButton(onPressed: (){}, icon: Icon(CupertinoIcons.photo),),),
-                  
-                  
-                  ],
-                 ),
+                    left: 70,
+                    child: IconButton(
+                      onPressed: () {
+                        PickImage();
+                      },
+                      icon: Icon(CupertinoIcons.photo_camera),
+                    ),
+                  ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.all(13.0),
                 child: TextFormField(
@@ -158,16 +199,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   child: Center(
                       child: _isLoading
-                      ?CircularProgressIndicator(color: Colors.white,) 
-                      :Text(
-                    'Register',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 4,
-                    ),
-                  )),
+                          ? CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                          : Text(
+                              'Register',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 4,
+                              ),
+                            )),
                 ),
               ),
               Row(
