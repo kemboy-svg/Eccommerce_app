@@ -42,7 +42,7 @@ class AuthController {
 
         res = 'success';
       } else {
-        res = 'somthing went wrong';
+        res = 'something went wrong';
       }
     } catch (e) {
       return e.toString();

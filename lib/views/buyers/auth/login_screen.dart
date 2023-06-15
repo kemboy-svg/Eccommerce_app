@@ -2,11 +2,10 @@ import 'package:eccommerce_app/controllers/auth_conroller.dart';
 import 'package:eccommerce_app/utils/show_SnackBar.dart';
 import 'package:eccommerce_app/views/buyers/auth/register_screen.dart';
 import 'package:eccommerce_app/views/buyers/main_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -29,22 +28,19 @@ class _LoginScreenState extends State<LoginScreen> {
       String res = await _controller.LoginUsers(email, password);
 
       if (res == 'success') {
-        
-        return Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return MainScreen();
-        }));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MainScreen()));
       } else {
         setState(() {
           _isLoading = false;
         });
-        
+        return displaySnack(context, 'User does not exist');
       }
     } else {
       setState(() {
         _isLoading = false;
       });
-      return displaySnack(context, 'All fields mus be filled correctly');
+      return displaySnack(context, 'All fields must be filled correctly');
     }
   }
 
@@ -67,10 +63,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  CircleAvatar(
+                 Stack(
+                  children: [
+                     CircleAvatar(
                     radius: 54,
                     backgroundColor: Colors.orange.shade900,
                   ),
+                  Positioned(
+                    bottom: -10,
+                    left: 80,
+                    child: IconButton(onPressed: (){}, icon: Icon(CupertinoIcons.photo),),),
+                  
+                  
+                  ],
+                 ),
                   Padding(
                     padding: const EdgeInsets.all(13.0),
                     child: TextFormField(

@@ -1,6 +1,7 @@
 import 'package:eccommerce_app/controllers/auth_conroller.dart';
 import 'package:eccommerce_app/utils/show_SnackBar.dart';
 import 'package:eccommerce_app/views/buyers/auth/login_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -52,13 +53,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Form(
           key: _formKey,
           child: Column(
+            
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 20,),
               Text('Create a customer"s account'),
-              CircleAvatar(
-                radius: 54,
-                backgroundColor: Colors.orange.shade900,
-              ),
+              Stack(
+                  children: [
+                     CircleAvatar(
+                    radius: 54,
+                    backgroundColor: Colors.orange.shade900,
+                  ),
+                  Positioned(
+                    bottom: -10,
+                    left: 80,
+                    child: IconButton(onPressed: (){}, icon: Icon(CupertinoIcons.photo),),),
+                  
+                  
+                  ],
+                 ),
               Padding(
                 padding: const EdgeInsets.all(13.0),
                 child: TextFormField(
