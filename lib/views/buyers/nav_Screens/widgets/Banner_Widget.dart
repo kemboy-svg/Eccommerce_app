@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 class BannerWidget extends StatefulWidget {
   @override
@@ -32,25 +34,38 @@ class _BannerWidgetState extends State<BannerWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-            height: 140,
-            decoration: BoxDecoration(
-              color: Colors.yellow.shade900,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: PageView.builder(
-              itemCount: _bannerImage.length,
-              itemBuilder: (context, Index) {
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        height: 140,
+        decoration: BoxDecoration(
+          color: Colors.yellow.shade900,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: PageView.builder(
+            itemCount: _bannerImage.length,
+            itemBuilder: (context, index) {
               return ClipRect(
-                child: Image.network(
-                  _bannerImage[Index],
-                  fit: BoxFit.fitWidth,
+                child: CachedNetworkImage(
+                  placeholder:(context, url)=> Shimmer(
+                    duration: Duration(seconds: 3), //Default value
+                    interval: Duration(
+                        seconds: 5), //Default value: Duration(seconds: 0)
+                    color: Colors.white, //Default value
+                    colorOpacity: 0, //Default value
+                    enabled: true, //Default value
+                    direction: ShimmerDirection.fromLTRB(), //Default Value
+                    child: Container(
+                      color: Colors.deepPurple,
+                    ),
+                  ),
+                  fit: BoxFit.cover,
+                  imageUrl: _bannerImage[index],
+                
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               );
-            }
-            ),
-            ),
-            );
+            }),
+      ),
+    );
   }
 }
