@@ -352,6 +352,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
+  kenya_county_picker:
+    dependency: "direct main"
+    description:
+      name: kenya_county_picker
+      sha256: "1677c3696f680e4e2e600c6ebd18bba1e359d507e9dfb9ac8a4d9a5f6fdbb7ab"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -694,5 +702,5 @@ packages:
     source: hosted
     version: "6.3.0"
 sdks:
-  dart: ">=3.3.0 <4.0.0"
+  dart: ">=3.3.4 <4.0.0"
   flutter: ">=3.16.6"

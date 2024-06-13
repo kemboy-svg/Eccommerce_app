@@ -26,12 +26,13 @@ class _LoginScreenState extends State<LoginScreen> {
     });
     if (_formKey.currentState!.validate()) {
       String res = await _controller.LoginUsers(email, password);
-         Navigator.pushReplacement(
+        Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => MainScreen()));
       if (res == 'success') {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => MainScreen()));
       } else {
+        displaySnack(context, 'Wrong passswords');
         setState(() { 
           _isLoading = false;
         });

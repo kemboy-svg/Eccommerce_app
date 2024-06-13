@@ -6,6 +6,7 @@ import 'package:eccommerce_app/views/buyers/auth/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kenya_county_picker/kenya_county_picker.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -32,6 +33,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? fileName;
 
   _signupUser() async {
+        print(countySelected);
+
     setState(() {
       _isLoading = true;
     });
@@ -51,6 +54,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       });
       return displaySnack(context, 'All fields must be filled correctly');
     }
+  }
+
+  String countySelected = "";
+  _onSelected(String county) {
+    setState(() {
+      countySelected = county;
+    });
   }
 
   PickImage() async {
@@ -98,8 +108,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       : CircleAvatar(
                           radius: 54,
                           backgroundColor: Colors.orange.shade900,
-                          backgroundImage: NetworkImage(
-                              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fdefault-profile-picture&psig=AOvVaw07K2V5_1qW6jIoMdcoZ46H&ust=1686903612946000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCND-nPnrxP8CFQAAAAAdAAAAABAE'),
+                          backgroundImage: NetworkImage('https:AAdAAAAABAE'),
                         ),
                   Positioned(
                     bottom: -10,
@@ -148,6 +157,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     labelText: 'Enter full name',
                   ),
                 ),
+              ),
+              KenyaCountyPicker(
+                onCountySelected: _onSelected,
               ),
               Padding(
                 padding: const EdgeInsets.all(13.0),
